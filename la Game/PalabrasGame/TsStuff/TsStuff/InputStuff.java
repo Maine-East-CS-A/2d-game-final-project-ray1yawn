@@ -1,10 +1,11 @@
+package TsStuff;
 import java.util.Scanner;
 
 public class InputStuff {
+    private static final Scanner scan = new Scanner(System.in);
+
     public String getUserInputThangSutffYk() {
-        Scanner scan = new Scanner(System.in);
-        String gyuess = scan.nextLine();
-        return gyuess;
+        return scan.nextLine();
     }
 
     public boolean validateInput(String input) {

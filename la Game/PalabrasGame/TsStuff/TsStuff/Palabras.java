@@ -1,6 +1,5 @@
 package TsStuff;
 
-import InputStuff;
 
 public class Palabras {
     
@@ -27,14 +26,14 @@ public class Palabras {
         while (!gameEsOber()) {
             System.out.println("Enter your guess dood: ");
             String gyuess = inputStuff.getUserInputThangSutffYk();
-            if (!inputStuff.validateInput(gyuess())) {
+            if (!inputStuff.validateInput(gyuess)) {
                 System.out.println("Yo buddy, learn to read, its 5-letters ONLY");
                 continue;
             }
             makeaGuessBud(gyuess.toLowerCase());
         }
     }
-    
+
     public boolean makeaGuessBud(String gyuess) {
         if (gameEsOber()) {
             System.out.println("Game es ober gang, you already lost");
@@ -42,11 +41,11 @@ public class Palabras {
         }
 
         attemptos++;
-        if (gyeuss.equals(theWord)) {
+        if (gyuess.equals(theWord)) {
             gameEsOber = true;
             System.out.println("Congrats gang you prolly cheated lowk or looked in game files theres no way...");
             System.out.println("Anyways, you guessed the word " + theWord + " in " + attemptos + " attempts.");
-            System.out.println("You win gang but you lowk suck jus lose for me 🙏");
+            System.out.println("You win gang but you lowk suck jus lose next time for me 🙏");
             return true;
         } else {
             System.out.println("LOOOOSEERRRRRR you got like " + (MAX_ATTEMPTS - attemptos) + " attempts left gang");
@@ -63,5 +62,3 @@ public class Palabras {
         return gameEsOber;
     }
 }
-
-
