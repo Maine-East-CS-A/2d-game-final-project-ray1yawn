@@ -1,4 +1,3 @@
-package TsStuff;
 
 
 public class Palabras {

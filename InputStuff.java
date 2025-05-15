@@ -1,4 +1,4 @@
-package TsStuff;
+
 import java.util.Scanner;
 
 public class InputStuff {
