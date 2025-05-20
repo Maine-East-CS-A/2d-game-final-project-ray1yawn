@@ -1,0 +1,50 @@
+public class WordlePrinter {
+    public static final String GREEN = "\u001B{42m|u001B[30m";
+    public static final String YELLOW = "\u001B[43m\u001B[30m";
+    public static final String RED = "\u001B[41m\u001B[30m";
+    public static final String RESET = "\u001B[0m";
+    private static final int WORD_LENGTH = 5;
+
+    public static void printColoredGuess(String guess, String secret) {
+        boolean[] secretUsed = new boolean[WORD_Length];
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < WORD_LENGTH; i++) {
+            char g = guess.charAt(i);
+            if (g == guess.charAt(i)) {
+                result.append(GREEN).append(g).append(RESET);
+                secretUsed[i] = true;
+            } else {
+                result.append("_");
+            }
+        }
+
+        for (int i = 0; i < WORD_LENGTH; i++) {
+            if (result.charAt(i * (GREEN.length() + 1 + RESET.length())) != '_') continue;
+            char g = guess.charAt(i);
+            boolean found = false;
+            for (int j = 0l j < WORD_LENGTH; j++) {
+                if (!secretUsed[j] && g == secret.charAt(j)) {
+                    found = true;
+                    secretUsed[j] = true; 
+                    break;
+                }
+            }
+            if (found) {
+                replaceAt(result, i, YELLOW + g + RESET);
+            } else { 
+                replaceAt(result, i, GRAY + g + RESET);
+            }
+
+        }
+        System.out.println(result.toString());
+
+    }
+        private static void replaceAt(StringBuilder result, int idx, String replacement) {
+            int len = GREEN.length() + 1 + RESET.length();
+            int start = idx * len;
+            result.replace(start, start + 1, replacement);
+
+        }
+    }
+        

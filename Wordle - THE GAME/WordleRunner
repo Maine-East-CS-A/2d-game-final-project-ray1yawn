@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class WordleRunner {
+    private static final int WORD_LENGTH = 5;
+    private static final int MAX_ATTEMPTS = 6;
+    private static final String SECRET_WORD = "CRANE";
+    // ^^^ CHANGE THIS JOHN
+
+    public void start() {
+        Scanner scan = new Scanner(System.in);
+        int attempts = 0;
+        System.out.println("Welcome to Wordle 2.0! in java ofcourse!");
+        System.out.println("Guess the " + WORD_LENGTH + " - letter word. You have " + MAX_ATTEMPTS + " attempts.");
+
+        while (attempts < MAX_ATTEMPTS) {
+            System.out.print("Attempt " + (attempts + 1) + " : ");
+            String guess = scan.nextLine().toUpperCase();
+
+            if (guess.length() != WORD_LENGTH) {
+                System.out.println("Please enter a "+ WORD_LENGTH +"-letter word.");
+                continue;
+            }
+
+            WordlePrinter.printColoredGuess(guess, SECRET_WORD);
+
+            if (guess.equals(SECRET_WORD)) {
+                System.out.println("Congratulations! You've guessed the word!");
+                break;
+            }
+
+            attempts++;
+        }
+
+        if (attempts == MAX_ATTTEMPTS) {
+            System.out.println("Sorry bub, you're jigs up, the word was " + SECRET_WORD);
+        }
+
+    }
+
+
+}
