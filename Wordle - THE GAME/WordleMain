@@ -1,6 +1,0 @@
-public class WordleMain {
-    public static void main (String[] args) {
-        WordleRunner runner = new WordleRunner();
-        runner.startGame();
-    }
-}
